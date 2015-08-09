@@ -8,10 +8,13 @@ electricdata$Date <- as.Date(electricdata$Date, format="%d/%m/%Y")
 ## Subsets the data with the date. 
 edfebruary <- subset(electricdata, electricdata$Date == "2007-02-01" | electricdata$Date == "2007-02-02")
 
+## Combine the date and time into a single variable. 
+edfebruary$combinedDT <- with(edfebruary, as.POSIXct(paste(Date,Time)), format="%Y-%m-%d %T")
+
 ## Create the plot.
-png(filename="plot1.png", width = 480, height = 480)
-hist(edfebruary$Global_active_power, 
-     col="red", 
-     xlab = "Global Active Power (kilowatts)",
-     main = "Global Active Power")
+png(filename="plot2.png", width = 480, height = 480)
+with(edfebruary, plot(Global_active_power ~ combinedDT,
+                      xlab="",
+                      ylab="Global Active Power (kilowatts)",
+                      type="l"))
 dev.off()

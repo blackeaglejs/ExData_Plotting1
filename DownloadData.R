@@ -1,7 +1,6 @@
-## This code will download the file, unzip the data, and then
-## transform it into requested plots. 
+## This code will download the file, and unzip the data.
 
-## Set the working directory to the forked repository. 
+## Set the working directory to the forked repository. You will need to edit this to whatever your working directory is.
 setwd("~/dev/datasciencecoursera/ExData_Plotting1/")
 
 ## Download the file. Warning - this will take time if you have a 

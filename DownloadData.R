@@ -13,4 +13,6 @@ download.file(fileUrl, destfile="electricpowerdata.zip", method = "curl")
 unzip("electricpowerdata.zip")
 
 ## We need the file name downloaded file for the next series of scripts.
-list.Files("*.txt")
+## Please note that this command is dependent on the text file for the data
+## being the only text file in the repository. 
+filename <- list.Files("*.txt")
